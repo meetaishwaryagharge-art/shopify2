@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LuxeState - Premium Footwear & Leather Essentials</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --gold: #c8a96e;
+      --gold-light: #e2c98a;
+      --dark: #0e0e0e;
+      --dark-2: #1a1a1a;
+      --mid: #2b2b2b;
+      --light-text: #f5f0eb;
+      --muted: #8a8a8a;
+      --white: #ffffff;
+      --border-dark: rgba(255, 255, 255, 0.1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: #000000;
+      color: var(--light-text);
+      overflow-x: hidden;
+    }
+
+    /* ─── ANNOUNCEMENT BAR ─── */
+    .announcement-bar {
+      background: var(--dark);
+      color: var(--gold-light);
+      text-align: center;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    /* ─── NAVBAR & MEGAMENU STYLING ─── */
+    .minimal-nav-bar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.4);
+      background-color: #000000 !important;
+      border-bottom: 1px solid var(--border-dark) !important;
+    }
+    .brand-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      letter-spacing: 2.5px;
+      color: var(--white) !important;
+    }
+    .brand-logo span {
+      color: var(--gold);
+    }
+    .main-nav-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-item-custom {
+      position: relative;
+    }
+    .main-nav-links .nav-link-custom {
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: #cccccc;
+      text-decoration: none;
+      padding: 10px 0;
+      display: inline-block;
+      transition: color 0.2s ease;
+    }
+    .main-nav-links .nav-link-custom:hover, 
+    .main-nav-links .nav-link-custom.active {
+      color: var(--gold);
+    }
+    .link-shop {
+      position: relative;
+    }
+    .hot-badge {
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #b10000;
+      color: #ffffff;
+      font-size: 8px;
+      padding: 1px 4px;
+      font-weight: 600;
+      border-radius: 1px;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+    }
+    .nav-utility-icons a {
+      color: #cccccc;
+      font-size: 16px;
+      transition: color 0.2s;
+    }
+    .nav-utility-icons a:hover {
+      color: var(--gold);
+    }
+
+    /* Megamenu Grid Layout Container */
+    .megamenu-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90vw;
+      max-width: 1140px;
+      background: var(--dark-2);
+      border-top: 2px solid var(--gold);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      padding: 30px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.25s ease-in-out;
+      z-index: 1100;
+    }
+    .nav-item-custom:hover .megamenu-dropdown {
+      opacity: 1;
+      visibility: visible;
+    }
+    .megamenu-title {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 15px;
+      position: relative;
+      padding-bottom: 5px;
+    }
+    .megamenu-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 20px;
+      height: 1px;
+      background-color: var(--gold);
+    }
+    .megamenu-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .megamenu-links li {
+      margin-bottom: 8px;
+    }
+    .megamenu-links li a {
+      font-size: 13px;
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .megamenu-links li a:hover {
+      color: var(--gold);
+      padding-left: 2px;
+    }
+    .megamenu-banner {
+      position: relative;
+      overflow: hidden;
+      height: 160px;
+      border: 1px solid var(--border-dark);
+    }
+    .megamenu-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      filter: brightness(0.8);
+    }
+    .megamenu-banner:hover img {
+      transform: scale(1.05);
+    }
+    .megamenu-banner-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ─── MASONRY HERO SECTION ─── */
+    .hero-masonry-section {
+      background-color: #000000 !important;
+    }
+    .large-promo-card {
+      min-height: 520px;
+      background-color: var(--dark);
+      overflow: hidden;
+      border: 1px solid var(--border-dark);
+    }
+    .side-promo-card {
+      min-height: 252px;
+      background-color: var(--dark);
+      overflow: hidden;
+      border: 1px solid var(--border-dark);
+    }
+    .slide-image-bg, 
+    .side-image-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      filter: brightness(0.75);
+    }
+    .large-promo-card:hover .slide-image-bg,
+    .side-promo-card:hover .side-image-bg {
+      transform: scale(1.03);
+    }
+    .promo-content-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+    }
+    .side-content-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.7) 100%);
+      z-index: 3;
+    }
+    .promo-heading {
+      font-family: 'Jost', sans-serif;
+      font-size: clamp(34px, 5vw, 56px);
+      letter-spacing: 2px;
+      margin-bottom: 22px;
+      font-weight: 500;
+    }
+    .btn-promo-shop {
+      display: inline-block;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      color: #000000;
+      background: #ffffff;
+      padding: 11px 26px;
+      text-decoration: none;
+      transition: background-color 0.25s, color 0.25s;
+    }
+    .btn-promo-shop:hover {
+      background-color: var(--gold);
+      color: #ffffff;
+    }
+    .side-promo-title {
+      font-family: 'Jost', sans-serif;
+      font-size: 24px;
+      letter-spacing: 0.5px;
+      line-height: 1.25;
+    }
+    .custom-arrow-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 38px;
+      height: 38px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      z-index: 10;
+      transition: background-color 0.25s, color 0.25s;
+    }
+    .custom-arrow-btn:hover { 
+      background-color: var(--gold); 
+      color: #000;
+    }
+    .custom-arrow-btn.left { left: 24px; }
+    .custom-arrow-btn.right { right: 24px; }
+    .custom-dots [data-bs-target] {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.3);
+      border: none;
+      margin: 0 5px;
+    }
+    .custom-dots .active {
+      background-color: var(--gold);
+      transform: scale(1.2);
+    }
+
+    /* ─── TRUST BADGES SECTION ─── */
+    .trust-badges-section {
+      background: var(--dark);
+      border-top: 1px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .max-badge-width { max-width: 360px; }
+    .badge-card {
+      padding: 20px 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .badge-icon-wrapper {
+      height: 50px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .badge-icon {
+      font-size: 32px;
+      color: var(--gold);
+    }
+    .badge-icon-wrapper .fast-text {
+      font-size: 8px;
+      letter-spacing: 0.5px;
+      color: #000;
+      background-color: var(--gold);
+      padding: 1px 4px;
+      border-radius: 2px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .card-icon-container { position: relative; display: inline-block; }
+    .lock-overlay-icon {
+      font-size: 12px;
+      color: var(--gold);
+      background: var(--dark);
+      border-radius: 50%;
+      padding: 1px;
+      position: absolute;
+      bottom: -2px;
+      right: -6px;
+    }
+    .badge-title {
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .badge-text {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    /* ─── MODERN STYLE LEATHER SHOES SECTION STYLING ─── */
+    .modern-collection-section {
+      background-color: #000000 !important;
+    }
+
+    .collection-main-title {
+      font-family: 'Jost', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      color: var(--white);
+    }
+
+    .modern-product-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background: var(--dark);
+      border: 1px solid var(--border-dark);
+      padding: 10px;
+    }
+
+    .modern-img-box {
+      position: relative;
+      background-color: #151515;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+    }
+
+    .modern-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s ease;
+      filter: brightness(0.85);
+    }
+
+    .modern-product-card:hover .modern-img-box img {
+      transform: scale(1.03);
+    }
+
+    .modern-sale-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #b10000;
+      color: var(--white);
+      font-size: 9px;
+      font-family: 'Jost', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 3px 6px;
+      z-index: 5;
+    }
+
+    /* Floating Hover Tool Bar Styling */
+    .modern-hover-actions {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(14, 14, 14, 0.95);
+      border-top: 1px solid var(--border-dark);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 8px 0;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: all 0.25s ease-in-out;
+      z-index: 10;
+    }
+
+    .modern-product-card:hover .modern-hover-actions {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .modern-hover-actions .action-btn {
+      background: none;
+      border: none;
+      color: #ccc;
+      font-size: 14px;
+      padding: 2px 16px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .modern-hover-actions .action-btn:hover {
+      color: var(--gold);
+    }
+
+    .modern-hover-actions .action-divider {
+      color: rgba(255,255,255,0.2);
+      font-size: 12px;
+    }
+
+    /* Color/Variant Swatch Circles layout */
+    .modern-swatch-panel {
+      position: absolute;
+      bottom: 50px;
+      right: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      z-index: 6;
+    }
+    .swatch-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
+      cursor: pointer;
+    }
+
+    .modern-info-box {
+      padding: 14px 2px 4px 2px;
+    }
+
+    .modern-product-name {
+      font-family: 'Jost', sans-serif;
+      font-size: 11.5px;
+      letter-spacing: 1px;
+      font-weight: 500;
+      color: #dddddd;
+      margin-bottom: 5px;
+    }
+
+    .modern-price-container {
+      font-family: 'Jost', sans-serif;
+      font-size: 11.5px;
+      font-weight: 600;
+    }
+
+    .modern-price-container .price-current {
+      color: var(--gold-light);
+    }
+
+    .modern-price-container .price-old {
+      color: #666666;
+      text-decoration: line-through;
+      margin-left: 6px;
+      font-weight: 400;
+    }
+
+    /* Select Option Configured Anchor Typography */
+    .btn-select-option {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      border-bottom: 1px solid var(--white);
+      padding-bottom: 1px;
+      display: inline-block;
+      margin-top: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-select-option:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .btn-all-products {
+      display: inline-block;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      color: var(--white);
+      background-color: var(--mid);
+      border: 1px solid var(--border-dark);
+      padding: 12px 36px;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-all-products:hover {
+      background-color: var(--gold);
+      color: #000000;
+    }
+
+    @media (max-width: 575.98px) {
+      .modern-info-box {
+        text-align: center;
+      }
+      .collection-main-title {
+        font-size: 18px;
+        padding: 0 10px;
+      }
+    }
+
+   /* ─── FEATURED MASONRY BANNERS STYLING ─── */
+    .featured-masonry-banners {
+      background-color: #000000 !important;
+      font-family: 'Jost', sans-serif;
+    }
+
+    .masonry-banner-card {
+      position: relative;
+      background-color: var(--dark-2);
+      border: 1px solid var(--border-dark);
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .large-card { min-height: 560px; }
+    .side-card { min-height: 268px; }
+
+    .inner-border-frame {
+      position: absolute;
+      top: 12px;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      pointer-events: none;
+      z-index: 4;
+    }
+
+    .banner-img-bg {
+      position: absolute;
+      inset: 0;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 2;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      filter: brightness(0.7);
+    }
+
+    .large-card .banner-img-bg {
+      background-size: 85%;
+      background-position: center center;
+    }
+
+    .side-card .banner-img-bg.right-aligned {
+      background-position: right 10% center;
+      background-size: cover;
+    }
+
+    .shadow-tweak {
+      filter: drop-shadow(-10px 10px 15px rgba(0, 0, 0, 0.6));
+    }
+
+    .masonry-banner-card:hover .banner-img-bg {
+      transform: scale(1.03);
+    }
+
+    .banner-text-overlay {
+      position: relative;
+      width: 100%;
+      z-index: 3;
+    }
+
+    .large-title-top, .large-title-mid, .large-title-bottom {
+      font-size: clamp(34px, 5vw, 48px);
+      letter-spacing: 12px;
+      text-indent: 12px;
+    }
+
+    .large-desc-text {
+      font-size: 12.5px;
+      letter-spacing: 1px;
+      max-width: 240px;
+      line-height: 1.5;
+    }
+
+    .btn-banner-action {
+      display: inline-block;
+      background-color: var(--gold);
+      color: #000000;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      padding: 10px 24px;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-banner-action:hover {
+      background-color: var(--white);
+      color: #000000;
+      transform: translateY(-1px);
+    }
+
+    .side-banner-title, .side-banner-discount {
+      font-size: clamp(20px, 3vw, 26px);
+      letter-spacing: 0.5px;
+    }
+
+    .decorative-watermark-text {
+      position: absolute;
+      left: 35px;
+      top: 15px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 100px;
+      color: rgba(200, 169, 110, 0.15);
+      user-select: none;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .style-z-index { z-index: 5; }
+
+    @media (max-width: 767.98px) {
+      .large-card { min-height: 480px; }
+      .side-card { min-height: 220px; }
+      .side-card .banner-img-bg.right-aligned {
+        background-size: contain;
+        background-position: right center;
+      }
+      .decorative-watermark-text {
+        font-size: 70px;
+        left: 25px;
+        top: 25px;
+      }
+    }
+
+    /* ─── EDITORIAL LATEST NEWS / BLOG SECTION ─── */
+    .editorial-news-section {
+      background-color: #000000 !important;
+      overflow: hidden;
+      font-family: 'Jost', sans-serif;
+    }
+
+    .news-editorial-card {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 380px;
+      overflow: hidden;
+      z-index: 1;
+      border: 1px solid var(--border-dark);
+    }
+
+    .news-card-image {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      z-index: 2;
+      transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+      filter: brightness(0.65);
+    }
+
+    .news-date-badge {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      width: 52px;
+      height: 52px;
+      background-color: var(--dark-2);
+      color: var(--white);
+      border: 1px solid var(--border-dark);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+      line-height: 1.1;
+    }
+
+    .news-date-badge .day {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--gold);
+    }
+
+    .news-date-badge .month {
+      font-size: 8px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 1px;
+      margin-top: 1px;
+    }
+
+    .news-content-panel {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(14, 14, 14, 0.85);
+      backdrop-filter: blur(2px);
+      z-index: 4;
+      transition: background-color 0.3s ease, padding 0.3s ease;
+      border-top: 1px solid var(--border-dark);
+    }
+
+    .news-category-tag {
+      font-size: 8.5px;
+      letter-spacing: 2px;
+      color: var(--gold);
+    }
+
+    .news-card-title {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      color: var(--white);
+    }
+
+    .news-editorial-card:hover .news-card-image {
+      transform: scale(1.05);
+    }
+
+    .news-editorial-card:hover .news-content-panel {
+      background: rgba(14, 14, 14, 0.95);
+    }
+
+    @media (max-width: 767.98px) {
+      .news-editorial-card {
+        height: 320px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .news-date-badge {
+        top: 20px;
+        left: 20px;
+        width: 46px;
+        height: 46px;
+      }
+      .news-date-badge .day { font-size: 12px; }
+      .news-date-badge .month { font-size: 7.5px; }
+    }
+
+    /* ─── FOOTER STYLING ─── */
+    .site-footer {
+      background-color: #0a0a0a;
+      color: #bbbbbb;
+      font-family: 'Jost', sans-serif;
+      border-top: 1px solid var(--border-dark);
+    }
+
+    .footer-col-title {
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+    
+    .footer-col-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 30px;
+      height: 1px;
+      background-color: var(--gold);
+    }
+
+    .footer-links-list li { margin-bottom: 12px; }
+    .footer-links-list li a {
+      color: #aaaaaa;
+      font-size: 11.5px;
+      text-decoration: none;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+      transition: color 0.2s ease;
+    }
+    .footer-links-list li a:hover { color: var(--gold); }
+
+    .link-shop-highlight .inline-tag-hot { color: #b10000; font-weight: 500; margin-left: 2px; }
+    .link-shop-highlight .inline-color-hex { color: #888888; font-size: 10px; margin-left: 2px; }
+
+    .footer-contact-info li {
+      font-size: 11.5px;
+      font-weight: 400;
+      margin-bottom: 14px;
+      color: #aaaaaa;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-contact-info li i { color: var(--gold); font-size: 12px; width: 14px; }
+
+    .footer-social-icons a {
+      width: 28px;
+      height: 28px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #cccccc;
+      font-size: 11px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .footer-social-icons a:hover {
+      background-color: var(--gold);
+      color: #000000;
+      border-color: var(--gold);
+    }
+
+    .footer-newsletter-text { font-size: 11.5px; line-height: 1.5; color: #888888 !important; }
+    .footer-newsletter-form { background: var(--dark); border: 1px solid var(--border-dark); }
+    .footer-newsletter-form input { font-size: 11px; padding: 11px 14px; color: var(--white); background-color: transparent !important; }
+    .footer-newsletter-form input::placeholder { color: #666; }
+    .footer-newsletter-form button {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      background-color: var(--gold);
+      color: #000000;
+      font-weight: 600;
+      border: none;
+      height: 100%;
+      white-space: nowrap;
+      padding: 13px 22px !important;
+      transition: background-color 0.2s;
+    }
+    .footer-newsletter-form button:hover { background-color: var(--white); }
+
+    /* ─── LIVE TOAST NOTIFICATION ─── */
+    .live-sale-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      background: var(--dark-2);
+      border: 1px solid var(--border-dark);
+      padding: 14px 20px;
+      border-radius: 2px;
+      z-index: 1050;
+      max-width: 330px;
+      font-family: 'Jost', sans-serif;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      transform: translateY(150%);
+      opacity: 0;
+    }
+    .live-sale-toast.show { transform: translateY(0); opacity: 1; }
+    .toast-close-btn { position: absolute; top: 4px; right: 10px; background: none; border: none; font-size: 18px; color: #666; cursor: pointer; line-height: 1; }
+    .toast-img-box { width: 45px; height: 45px; background: #222; flex-shrink: 0; }
+    .toast-img-box img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8); }
+    .toast-meta { font-size: 11px; color: #aaa; line-height: 1.4; }
+    .toast-meta .text-dark { color: var(--white) !important; }
+    .toast-product-name { font-size: 11px; font-weight: 600; color: var(--gold); letter-spacing: 0.5px; margin: 2px 0; }
+    .toast-time { font-size: 10px; color: #666666; }
+
+    @media (max-width: 991.98px) {
+      .large-promo-card { min-height: 400px; }
+      .side-promo-card { min-height: 220px; }
+      .live-sale-toast { bottom: 16px; left: 16px; max-width: 300px; }
+    }
+
+    /* ─── BLOG MEGAMENU CARD STYLES ─── */
+    .megamenu-blog-card {
+      display: flex;
+      flex-direction: column;
+    }
+    .megamenu-blog-img {
+      width: 100%;
+      height: 120px;
+      overflow: hidden;
+      border: 1px solid var(--border-dark);
+    }
+    .megamenu-blog-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      filter: brightness(0.75);
+    }
+    .megamenu-blog-card:hover .megamenu-blog-img img {
+      transform: scale(1.05);
+    }
+    .megamenu-blog-cat {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .megamenu-blog-title {
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #eee;
+      margin-bottom: 3px;
+      line-height: 1.4;
+      transition: color 0.2s;
+    }
+    .megamenu-blog-card:hover .megamenu-blog-title { color: var(--gold); }
+    .megamenu-blog-date {
+      font-size: 9.5px;
+      color: #666;
+      letter-spacing: 0.5px;
+    }
+
+    /* Wider megamenu for blog (full width feel) */
+    .megamenu-blog {
+      left: auto;
+      right: 0;
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="announcement-bar">
+    Free Shipping on Orders Over $150 &nbsp;|&nbsp; Premium Craftsmanship Collection
+  </div>
+
+  <header class="minimal-nav-bar bg-white border-bottom py-3">
+    <div class="container-fluid px-4 px-lg-5 d-flex align-items-center justify-content-between">
+      <a href="#" class="brand-logo text-uppercase fw-semibold tracking-widest text-dark text-decoration-none">
+        Luxe<span>State</span>
+      </a>
+      
+      <ul class="d-none d-lg-flex align-items-center gap-4 main-nav-links mb-0">
+        <li class="nav-item-custom"><a href="#" class="nav-link-custom active">Home</a></li>
+        
+        <!-- SHOP MEGAMENU -->
+        <li class="nav-item-custom">
+          <a href="#" class="nav-link-custom position-relative link-shop">
+            Shop <span class="hot-badge text-uppercase">Hot</span>
+          </a>
+          <div class="megamenu-dropdown">
+            <div class="row g-4">
+              <div class="col-lg-2">
+                <h6 class="megamenu-title">Men's Shoes</h6>
+                <ul class="megamenu-links">
+                  <li><a href="#">Oxford &amp; Derbies</a></li>
+                  <li><a href="#">Classic Brogues</a></li>
+                  <li><a href="#">Leather Loafers</a></li>
+                  <li><a href="#">Premium Boots</a></li>
+                  <li><a href="#">Driving Moccasins</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-2">
+                <h6 class="megamenu-title">Women's Shoes</h6>
+                <ul class="megamenu-links">
+                  <li><a href="#">British Brogues</a></li>
+                  <li><a href="#">Elegant Flats</a></li>
+                  <li><a href="#">Leather Sandals</a></li>
+                  <li><a href="#">Suede Loafers</a></li>
+                  <li><a href="#">Ankle Boots</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-2">
+                <h6 class="megamenu-title">Accessories</h6>
+                <ul class="megamenu-links">
+                  <li><a href="#">Leather Belts</a></li>
+                  <li><a href="#">Shoe Care Kits</a></li>
+                  <li><a href="#">Insoles</a></li>
+                  <li><a href="#">Laces</a></li>
+                  <li><a href="#">Gift Sets</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-3">
+                <div class="megamenu-banner">
+                  <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&q=80" alt="New Arrivals">
+                  <div class="megamenu-banner-overlay">
+                    <span class="text-white text-uppercase font-monospace small fw-semibold">New Arrivals</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="megamenu-banner">
+                  <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&q=80" alt="Best Sellers">
+                  <div class="megamenu-banner-overlay">
+                    <span class="text-white text-uppercase font-monospace small fw-semibold">Best Sellers</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- FEATURED MEGAMENU -->
+        <li class="nav-item-custom">
+          <a href="#" class="nav-link-custom">Featured</a>
+          <div class="megamenu-dropdown">
+            <div class="row g-4">
+              <div class="col-lg-2">
+                <h6 class="megamenu-title">Collections</h6>
+                <ul class="megamenu-links">
+                  <li><a href="#">Summer Edit</a></li>
+                  <li><a href="#">Heritage Line</a></li>
+                  <li><a href="#">Limited Edition</a></li>
+                  <li><a href="#">Capsule Drop</a></li>
+                  <li><a href="#">Signature Series</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-2">
+                <h6 class="megamenu-title">Highlights</h6>
+                <ul class="megamenu-links">
+                  <li><a href="#">Staff Picks</a></li>
+                  <li><a href="#">Trending Now</a></li>
+                  <li><a href="#">Editor's Choice</a></li>
+                  <li><a href="#">Customer Favourites</a></li>
+                  <li><a href="#">Award Winners</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-4">
+                <div class="megamenu-banner" style="height:175px;">
+                  <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80" alt="Heritage Collection" style="width:100%;height:100%;object-fit:cover;">
+                  <div class="megamenu-banner-overlay d-flex flex-column align-items-center justify-content-center gap-1">
+                    <span class="text-white text-uppercase font-monospace" style="font-size:10px;letter-spacing:2px;">Heritage Collection</span>
+                    <a href="#" class="text-white text-uppercase font-monospace" style="font-size:9px;border-bottom:1px solid rgba(255,255,255,0.6);text-decoration:none;padding-bottom:2px;letter-spacing:1.5px;">Shop Now</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="megamenu-banner" style="height:175px;">
+                  <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80" alt="Summer Edit" style="width:100%;height:100%;object-fit:cover;">
+                  <div class="megamenu-banner-overlay d-flex flex-column align-items-center justify-content-center gap-1">
+                    <span class="text-white text-uppercase font-monospace" style="font-size:10px;letter-spacing:2px;">Summer Edit</span>
+                    <a href="#" class="text-white text-uppercase font-monospace" style="font-size:9px;border-bottom:1px solid rgba(255,255,255,0.6);text-decoration:none;padding-bottom:2px;letter-spacing:1.5px;">Explore</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- PAGES MEGAMENU -->
+        <li class="nav-item-custom">
+          <a href="#" class="nav-link-custom">Pages</a>
+          <div class="megamenu-dropdown">
+            <div class="row g-4">
+              <div class="col-lg-2">
+                <h6 class="megamenu-title">Company</h6>
+                <ul class="megamenu-links">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Our Story</a></li>
+                  <li><a href="#">Craftsmanship</a></li>
+                  <li><a href="#">Sustainability</a></li>
+                  <li><a href="#">Careers</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-2">
+                <h6 class="megamenu-title">Support</h6>
+                <ul class="megamenu-links">
+                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="#">FAQs</a></li>
+                  <li><a href="#">Size Guide</a></li>
+                  <li><a href="#">Shipping &amp; Returns</a></li>
+                  <li><a href="#">Store Locator</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-2">
+                <h6 class="megamenu-title">Legal</h6>
+                <ul class="megamenu-links">
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">Terms of Service</a></li>
+                  <li><a href="#">Refund Policy</a></li>
+                  <li><a href="#">Sitemap</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-3">
+                <div class="megamenu-banner">
+                  <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=400&q=80" alt="Our Story">
+                  <div class="megamenu-banner-overlay d-flex flex-column align-items-center justify-content-center gap-1">
+                    <span class="text-white text-uppercase font-monospace" style="font-size:10px;letter-spacing:2px;">Our Story</span>
+                    <a href="#" class="text-white text-uppercase font-monospace" style="font-size:9px;border-bottom:1px solid rgba(255,255,255,0.6);text-decoration:none;padding-bottom:2px;letter-spacing:1.5px;">Read More</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="megamenu-banner">
+                  <img src="https://images.unsplash.com/photo-1616260967559-4f84a8e3dc37?w=400&q=80" alt="Craftsmanship">
+                  <div class="megamenu-banner-overlay d-flex flex-column align-items-center justify-content-center gap-1">
+                    <span class="text-white text-uppercase font-monospace" style="font-size:10px;letter-spacing:2px;">Craftsmanship</span>
+                    <a href="#" class="text-white text-uppercase font-monospace" style="font-size:9px;border-bottom:1px solid rgba(255,255,255,0.6);text-decoration:none;padding-bottom:2px;letter-spacing:1.5px;">Discover</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- BLOG MEGAMENU -->
+        <li class="nav-item-custom">
+          <a href="#" class="nav-link-custom">Blogs</a>
+          <div class="megamenu-dropdown megamenu-blog">
+            <div class="row g-4">
+              <div class="col-lg-2">
+                <h6 class="megamenu-title">Categories</h6>
+                <ul class="megamenu-links">
+                  <li><a href="#">Style Guide</a></li>
+                  <li><a href="#">Shoe Care Tips</a></li>
+                  <li><a href="#">Trend Reports</a></li>
+                  <li><a href="#">Behind The Craft</a></li>
+                  <li><a href="#">Customer Stories</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-10">
+                <div class="row g-3">
+                  <div class="col-4">
+                    <a href="#" class="text-decoration-none">
+                      <div class="megamenu-blog-card">
+                        <div class="megamenu-blog-img">
+                          <img src="https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=400&q=80" alt="Why Leather?">
+                        </div>
+                        <div class="megamenu-blog-info pt-2">
+                          <span class="megamenu-blog-cat">News</span>
+                          <p class="megamenu-blog-title">Why Leather?</p>
+                          <span class="megamenu-blog-date">03 Jul 2025</span>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-4">
+                    <a href="#" class="text-decoration-none">
+                      <div class="megamenu-blog-card">
+                        <div class="megamenu-blog-img">
+                          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="Finish Made By Hand">
+                        </div>
+                        <div class="megamenu-blog-info pt-2">
+                          <span class="megamenu-blog-cat">Craft</span>
+                          <p class="megamenu-blog-title">Finish Made By Hand</p>
+                          <span class="megamenu-blog-date">03 Jul 2025</span>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-4">
+                    <a href="#" class="text-decoration-none">
+                      <div class="megamenu-blog-card">
+                        <div class="megamenu-blog-img">
+                          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&q=80" alt="Soft Butter Leather">
+                        </div>
+                        <div class="megamenu-blog-info pt-2">
+                          <span class="megamenu-blog-cat">Style</span>
+                          <p class="megamenu-blog-title">Soft Soft Butter</p>
+                          <span class="megamenu-blog-date">03 Jul 2025</span>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="nav-utility-icons d-flex align-items-center gap-3 text-dark">
+        <a href="#" aria-label="Search"><i class="bi bi-search"></i></a>
+        <a href="#" aria-label="Account"><i class="bi bi-person"></i></a>
+        <a href="#" aria-label="Favorites"><i class="bi bi-heart"></i></a>
+        <a href="#" aria-label="Shopping Bag"><i class="bi bi-bag"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero-masonry-section py-4 bg-white">
+    <div class="container-fluid px-4 px-lg-5">
+      <div class="row g-3">
+        <div class="col-lg-8">
+          <div id="promoCarousel" class="carousel slide h-100 position-relative large-promo-card" data-bs-ride="carousel">
+            <div class="carousel-indicators custom-dots">
+              <button type="button" data-bs-target="#promoCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#promoCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            </div>
+            <div class="carousel-inner h-100">
+              <div class="carousel-item active h-100">
+                <div class="slide-image-bg" style="background-image: url('https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=1200&q=80');"></div>
+                <div class="promo-content-overlay text-center">
+                  <h2 class="promo-heading text-uppercase text-white fw-bold">Loafer Ladie</h2>
+                  <a href="#" class="btn-promo-shop text-uppercase">Shop Now</a>
+                </div>
+              </div>
+              <div class="carousel-item h-100">
+                <div class="slide-image-bg" style="background-image: url('https://images.unsplash.com/photo-1560343090-f0409e92791a?w=1200&q=80');"></div>
+                <div class="promo-content-overlay text-center">
+                  <h2 class="promo-heading text-uppercase text-white fw-bold">Signature Framework</h2>
+                  <a href="#" class="btn-promo-shop text-uppercase">Shop Now</a>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev custom-arrow-btn left" type="button" data-bs-target="#promoCarousel" data-bs-slide="prev">
+              <i class="bi bi-chevron-left"></i>
+            </button>
+            <button class="carousel-control-next custom-arrow-btn right" type="button" data-bs-target="#promoCarousel" data-bs-slide="next">
+              <i class="bi bi-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+        <div class="col-lg-4 d-flex flex-column gap-3">
+          <div class="side-promo-card flex-grow-1 position-relative">
+            <div class="side-image-bg" style="background-image: url('https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&q=80');"></div>
+            <div class="side-content-overlay p-4">
+              <h3 class="side-promo-title text-white fw-normal">Premium Leather<br>Ladies shoe</h3>
+            </div>
+          </div>
+          <div class="side-promo-card flex-grow-1 position-relative">
+            <div class="side-image-bg" style="background-image: url('https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?w=600&q=80');"></div>
+            <div class="side-content-overlay p-4 text-start d-flex flex-column justify-content-end align-items-end h-100">
+              <h3 class="side-promo-title text-white fw-normal text-end">British Style<br>Flats Brogues</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-badges-section py-5">
+    <div class="container text-center">
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4 col-sm-6 max-badge-width">
+          <div class="badge-card">
+            <div class="badge-icon-wrapper">
+              <i class="bi bi-truck-flatbed badge-icon"></i>
+              <span class="fast-text text-uppercase fw-bold">Fast</span>
+            </div>
+            <h3 class="badge-title">Shipping & Return</h3>
+            <p class="badge-text">If your glasses aren't perfect, return them within 30 days for a full refund.</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 max-badge-width">
+          <div class="badge-card">
+            <div class="badge-icon-wrapper">
+              <i class="bi bi-lightbulb badge-icon"></i>
+            </div>
+            <h3 class="badge-title">Shop With Confidence</h3>
+            <p class="badge-text">Our Buyer Protection covers your purchase from click to delivery.</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 max-badge-width">
+          <div class="badge-card">
+            <div class="badge-icon-wrapper">
+              <div class="card-icon-container">
+                <i class="bi bi-credit-card badge-icon"></i>
+                <i class="bi bi-lock-fill lock-overlay-icon"></i>
+              </div>
+            </div>
+            <h3 class="badge-title">Safe Payment</h3>
+            <p class="badge-text">Pay with the world's most popular and secure payment methods.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="modern-collection-section py-5 bg-white">
+    <div class="container">
+      
+      <div class="text-center mb-5">
+        <h2 class="collection-main-title text-uppercase fw-semibold tracking-wider">Modern Style Leather Shoes</h2>
+      </div>
+
+      <div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-md-4">
+        
+        <div class="col">
+          <div class="modern-product-card">
+            <div class="modern-img-box">
+              <span class="modern-sale-badge">-52%</span>
+              <img src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=600&q=80" alt="Kori Brogue" class="img-fluid">
+              
+              <div class="modern-swatch-panel">
+                <span class="swatch-dot" style="background: #000000;"></span>
+                <span class="swatch-dot" style="background: #5a1818;"></span>
+              </div>
+
+              <div class="modern-hover-actions">
+                <button class="action-btn" aria-label="Add to Wishlist"><i class="bi bi-heart"></i></button>
+                <span class="action-divider">|</span>
+                <button class="action-btn" aria-label="Quick View"><i class="bi bi-search"></i></button>
+              </div>
+            </div>
+            <div class="modern-info-box">
+              <h4 class="modern-product-name text-uppercase">Kori Brogue</h4>
+              <div class="modern-price-container">
+              <span class="price-current">$790.78</span>
+              <span class="price-old">$1,146.50</span>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="modern-product-card">
+            <div class="modern-img-box">
+              <span class="modern-sale-badge">-23%</span>
+              <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=600&q=80" alt="Loafer" class="img-fluid">
+              
+              <div class="modern-hover-actions">
+                <button class="action-btn" aria-label="Add to Wishlist"><i class="bi bi-heart"></i></button>
+                <span class="action-divider">|</span>
+                <button class="action-btn" aria-label="Quick View"><i class="bi bi-search"></i></button>
+              </div>
+            </div>
+            <div class="modern-info-box">
+              <h4 class="modern-product-name text-uppercase">Loafer</h4>
+              <div class="modern-price-container">
+                <span class="price-current">$690.00</span>
+                <span class="price-old">$890.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="modern-product-card">
+            <div class="modern-img-box">
+              <span class="modern-sale-badge">-12%</span>
+              <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=600&q=80" alt="Men's Boot" class="img-fluid">
+              
+              <div class="modern-hover-actions">
+                <button class="action-btn" aria-label="Add to Wishlist"><i class="bi bi-heart"></i></button>
+                <span class="action-divider">|</span>
+                <button class="action-btn" aria-label="Quick View"><i class="bi bi-search"></i></button>
+              </div>
+            </div>
+            <div class="modern-info-box">
+              <h4 class="modern-product-name text-uppercase">Men's Boot</h4>
+              <div class="modern-price-container">
+                <span class="price-current">$1,190.00</span>
+                <span class="price-old">$1,342.90</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="modern-product-card">
+            <div class="modern-img-box">
+              <span class="modern-sale-badge">-11%</span>
+              <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&q=80" alt="Radah" class="img-fluid">
+              
+              <div class="modern-hover-actions">
+                <button class="action-btn" aria-label="Add to Wishlist"><i class="bi bi-heart"></i></button>
+                <span class="action-divider">|</span>
+                <button class="action-btn" aria-label="Quick View"><i class="bi bi-search"></i></button>
+              </div>
+            </div>
+            <div class="modern-info-box">
+              <h4 class="modern-product-name text-uppercase">Radah</h4>
+              <div class="modern-price-container">
+                <span class="price-current">$1,113.30</span>
+                <span class="price-old">$1,243.50</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="modern-product-card">
+            <div class="modern-img-box">
+              <span class="modern-sale-badge">-12%</span>
+              <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?w=600&q=80" alt="Driving" class="img-fluid">
+              
+              <div class="modern-hover-actions">
+                <button class="action-btn" aria-label="Add to Wishlist"><i class="bi bi-heart"></i></button>
+                <span class="action-divider">|</span>
+                <button class="action-btn" aria-label="Quick View"><i class="bi bi-search"></i></button>
+              </div>
+            </div>
+            <div class="modern-info-box">
+              <h4 class="modern-product-name text-uppercase">Driving</h4>
+              <div class="modern-price-container">
+                <span class="price-current">$767.00</span>
+                <span class="price-old">$867.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="modern-product-card">
+            <div class="modern-img-box">
+              <img src="https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=600&q=80" alt="Fwipe" class="img-fluid">
+              
+              <div class="modern-hover-actions">
+                <button class="action-btn" aria-label="Add to Wishlist"><i class="bi bi-heart"></i></button>
+                <span class="action-divider">|</span>
+                <button class="action-btn" aria-label="Quick View"><i class="bi bi-search"></i></button>
+              </div>
+            </div>
+            <div class="modern-info-box">
+              <h4 class="modern-product-name text-uppercase">Fwipe</h4>
+              <div class="modern-price-container">
+                <span class="price-current">$1,345.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="modern-product-card">
+            <div class="modern-img-box">
+              <span class="modern-sale-badge">-25%</span>
+              <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&q=80" alt="Beno Beera" class="img-fluid">
+              
+              <div class="modern-hover-actions">
+                <button class="action-btn" aria-label="Add to Wishlist"><i class="bi bi-heart"></i></button>
+                <span class="action-divider">|</span>
+                <button class="action-btn" aria-label="Quick View"><i class="bi bi-search"></i></button>
+              </div>
+            </div>
+            <div class="modern-info-box">
+              <h4 class="modern-product-name text-uppercase">Beno Beera</h4>
+              <div class="modern-price-container">
+                <span class="price-current">$575.00</span>
+                <span class="price-old">$746.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="modern-product-card">
+            <div class="modern-img-box">
+              <img src="https://images.unsplash.com/photo-1449505278894-297fdb3edbc1?w=600&q=80" alt="Horsebit" class="img-fluid">
+              
+              <div class="modern-hover-actions">
+                <button class="action-btn" aria-label="Add to Wishlist"><i class="bi bi-heart"></i></button>
+                <span class="action-divider">|</span>
+                <button class="action-btn" aria-label="Quick View"><i class="bi bi-search"></i></button>
+              </div>
+            </div>
+            <div class="modern-info-box">
+              <h4 class="modern-product-name text-uppercase">Horsebit</h4>
+              <div class="modern-price-container">
+                <span class="price-current">$690.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="text-center mt-5 pt-2">
+        <a href="#" class="btn-all-products text-uppercase text-decoration-none">All Products</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="featured-masonry-banners py-5 bg-white">
+    <div class="container">
+      <div class="row g-4">
+        
+        <div class="col-md-6">
+          <div class="masonry-banner-card large-card position-relative text-center d-flex align-items-center justify-content-center">
+            <div class="inner-border-frame"></div>
+            <div class="banner-img-bg" style="background-image: url('https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800&q=80');"></div>
+            
+            <div class="banner-text-overlay d-flex flex-column align-items-center justify-content-between h-100 py-5 px-4">
+              <h2 class="large-title-top text-uppercase text-white tracking-widest fw-bold mb-0">The</h2>
+              
+              <div class="mid-action-wrapper my-4">
+                <h2 class="large-title-mid text-uppercase text-white tracking-widest fw-bold mb-4">Leather</h2>
+                <a href="#" class="btn-banner-action text-uppercase text-decoration-none">View Collection</a>
+              </div>
+              
+              <div class="bottom-content-box">
+                <h2 class="large-title-bottom text-uppercase text-white tracking-widest fw-bold mb-3">Shoe</h2>
+                <p class="large-desc-text text-white-50 mx-auto mb-0">A new look that goes with you from day to night.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 d-flex flex-column gap-4">
+          
+          <div class="masonry-banner-card side-card position-relative overflow-hidden">
+            <div class="inner-border-frame"></div>
+            <div class="banner-img-bg right-aligned" style="background-image: url('https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&q=80');"></div>
+            
+            <div class="banner-text-overlay d-flex align-items-center h-100 p-4 p-md-5">
+              <div class="side-content-box text-white">
+                <h3 class="side-banner-title mb-1 fw-normal">Style Sandals</h3>
+                <h4 class="side-banner-discount fw-light">10% Off</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="masonry-banner-card side-card position-relative overflow-hidden">
+            <div class="inner-border-frame"></div>
+            <div class="banner-img-bg right-aligned shadow-tweak" style="background-image: url('https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?w=600&q=80');"></div>
+            
+            <div class="banner-text-overlay d-flex align-items-center h-100 p-4 p-md-5">
+              <div class="decorative-watermark-text">Her</div>
+              
+              <div class="side-content-box ms-auto text-end text-md-start text-white position-relative style-z-index">
+                <h3 class="side-banner-title mb-1 fw-normal">Fashion Shoe</h3>
+                <h4 class="side-banner-discount fw-light">25% Off</h4>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="editorial-news-section bg-white py-2">
+    <div class="container-fluid px-0">
+      <div class="row g-0 row-cols-1 row-cols-md-3">
+        
+        <div class="col">
+          <a href="#" class="news-editorial-card text-decoration-none">
+            <div class="news-date-badge shadow-sm">
+              <span class="day">03</span>
+              <span class="month text-uppercase">Jul</span>
+            </div>
+            <div class="news-card-image" style="background-image: url('https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=800&q=80');"></div>
+            <div class="news-content-panel p-4">
+              <span class="news-category-tag text-uppercase fw-medium tracking-widest mb-1 d-block">News</span>
+              <h3 class="news-card-title text-uppercase mb-0">Why Leather?</h3>
+            </div>
+          </a>
+        </div>
+
+        <div class="col">
+          <a href="#" class="news-editorial-card text-decoration-none">
+            <div class="news-date-badge shadow-sm">
+              <span class="day">03</span>
+              <span class="month text-uppercase">Jul</span>
+            </div>
+            <div class="news-card-image" style="background-image: url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80');"></div>
+            <div class="news-content-panel p-4">
+              <span class="news-category-tag text-uppercase fw-medium tracking-widest mb-1 d-block">News</span>
+              <h3 class="news-card-title text-uppercase mb-0">Finish Made By Hand</h3>
+            </div>
+          </a>
+        </div>
+
+        <div class="col">
+          <a href="#" class="news-editorial-card text-decoration-none">
+            <div class="news-date-badge shadow-sm">
+              <span class="day">03</span>
+              <span class="month text-uppercase">Jul</span>
+            </div>
+            <div class="news-card-image" style="background-image: url('https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&q=80');"></div>
+            <div class="news-content-panel p-4">
+              <span class="news-category-tag text-uppercase fw-medium tracking-widest mb-1 d-block">News</span>
+              <h3 class="news-card-title text-uppercase mb-0">Soft Soft Butter</h3>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer py-5">
+    <div class="container">
+      <div class="row g-4 justify-content-between">
+        
+        <div class="col-6 col-sm-4 col-md-2">
+          <h5 class="footer-col-title text-uppercase position-relative pb-2 mb-3">Shop</h5>
+          <ul class="footer-links-list list-unstyled">
+            <li><a href="#">Home</a></li>
+            <li>
+              <a href="#" class="position-relative link-shop-highlight">
+                Shop<span class="inline-tag-hot">[HOT]</span><span class="inline-color-hex">[#c10005]</span>
+              </a>
+            </li>
+            <li><a href="#">Featured</a></li>
+            <li><a href="#">Pages</a></li>
+            <li><a href="#">Blogs</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-sm-4 col-md-2">
+          <h5 class="footer-col-title text-uppercase position-relative pb-2 mb-3">Information</h5>
+          <ul class="footer-links-list list-unstyled">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Customer Service</a></li>
+            <li><a href="#">Blogs & Updates</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Delivery Notice</a></li>
+            <li><a href="#">Sitemap</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-sm-4 col-md-2">
+          <h5 class="footer-col-title text-uppercase position-relative pb-2 mb-3">About</h5>
+          <ul class="footer-links-list list-unstyled">
+            <li><a href="#">The Brand</a></li>
+            <li><a href="#">Media Center</a></li>
+            <li><a href="#">Affiliates</a></li>
+            <li><a href="#">Corporate Services</a></li>
+            <li><a href="#">Corporate</a></li>
+            <li><a href="#">Studio Services</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-sm-6 col-md-3">
+          <h5 class="footer-col-title text-uppercase position-relative pb-2 mb-3">Follow Us</h5>
+          <ul class="footer-contact-info list-unstyled mb-4">
+            <li><i class="bi bi-telephone-fill"></i> (646) 663-4575</li>
+            <li><i class="bi bi-printer-fill"></i> (646) 968-0608</li>
+            <li><i class="bi bi-envelope-fill"></i> help@engotheme.com</li>
+            <li><i class="bi bi-send-fill"></i> 1201 Broadway Suite 600</li>
+          </ul>
+          
+          <div class="footer-social-icons d-flex gap-2">
+            <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" aria-label="Global"><i class="bi bi-globe"></i></a>
+            <a href="#" aria-label="Behance"><i class="bi bi-behance"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-3">
+          <h5 class="footer-col-title text-uppercase position-relative pb-2 mb-3">Newsletters</h5>
+          <p class="footer-newsletter-text mb-4 text-muted">Be the first who learns about our great promotions!</p>
+          
+          <form class="footer-newsletter-form d-flex align-items-center shadow-sm">
+            <input type="email" class="form-control border-0 rounded-0 bg-white" placeholder="Enter your email..." required aria-label="Email Field">
+            <button type="submit" class="btn btn-dark text-uppercase rounded-0 font-monospace fw-semibold px-4 py-2">Subscribe</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <div class="live-sale-toast shadow" id="saleToast">
+    <button class="toast-close-btn" id="closeToastBtn" aria-label="Close">&times;</button>
+    <div class="d-flex align-items-center gap-3">
+      <div class="toast-img-box">
+        <img src="https://images.unsplash.com/photo-1535043934128-cf0b28d52f95?w=120&q=80" alt="Thumbnail">
+      </div>
+      <div class="toast-info-text">
+        <p class="toast-meta mb-0">James Laura in <span class="fw-medium text-dark">Fairhaven, MA 2719</span> purchased a</p>
+        <h5 class="toast-product-name text-uppercase mb-0">Kate Suede</h5>
+        <p class="toast-time mb-0">About <span id="toastTimeCounter">21</span> minutes ago</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const saleToast = document.getElementById("saleToast");
+      const closeToastBtn = document.getElementById("closeToastBtn");
+
+      setTimeout(() => {
+        saleToast.classList.add("show");
+      }, 3000);
+
+      closeToastBtn.addEventListener("click", () => {
+        saleToast.classList.remove("show");
+      });
+    });
+  </script>
+</body>
+</html>
